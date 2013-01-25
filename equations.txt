@@ -5,7 +5,7 @@
 "platter_radius"= "platter_diameter" / 2
 "extruder_mount_hole_spacing"= 75
 "arm_rod_spacing"= 40
-"top_frame_rod_spacing"= "arm_rod_spacing" + 40
+"top_frame_spacing"= 90
 "motor_level_rod_spacing"= 15
 "linear_bearing_diameter"= 15
 "z_rod_spacing"= 75
