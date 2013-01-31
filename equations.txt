@@ -24,3 +24,6 @@
 "sheet_nut_diameter"= 5.5
 "sheet_nut_thickness"= 2.5
 "sheet_nut_depth"= 10
+"bearing_outside_diameter"= 22
+"bearing_thickness"= 7
+"corner_part_thickness"= "sheet_thickness" + "bearing_thickness"
