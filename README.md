@@ -3,8 +3,8 @@ Quadricator
 
 A polar coordinate based 3D printer with 4 extruders
 
-![A magnificent rendering of the Quadricator](http://i.imgur.com/L3tE22T.png)
-[Full Size](http://i.imgur.com/aheMfxH.jpg)
+![A magnificent rendering of the Quadricator](http://i.imgur.com/bO3yb8Y.png)
+[Full Size](http://i.imgur.com/XjrklZc.jpg)
 
 Whats a polar printer?
 ----------------------
@@ -13,10 +13,11 @@ A polar printer works kind of like an old fashioned record player. Your objects 
 Features
 --------
 + 4 extruders for multiple colors and materials
-+ 320 mm print platter (meets or exceeds the are of current repraps)
-+ 80425 mm^2 print area
++ 320 mm build platter
++ 80425 mm^2 print area (meets or exceeds the area of current repraps)
 + 0.084 degrees/step angular resolution (ϴ Axis)
 + 0.20 mm/step linear resolution (R Axis)
++ Now comes in two versions! The lasercut edition and the reprap edition (printed parts & threaded rods)
 
 ϴ Axis
 ------
