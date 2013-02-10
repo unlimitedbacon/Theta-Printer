@@ -27,3 +27,7 @@
 "bearing_outside_diameter"= 22
 "bearing_thickness"= 7
 "corner_part_thickness"= "sheet_thickness" + "bearing_thickness"
+"setscrew_nut_diameter"= 6
+"setscrew_nut_thickness"= 3
+"setscrew_bolt_diameter"= 3
+"motor_shaft_diameter"= 5.7
