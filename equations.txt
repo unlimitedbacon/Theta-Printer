@@ -9,6 +9,7 @@
 "motor_level_rod_spacing"= 15
 "linear_bearing_diameter"= 15
 "z_rod_spacing"= 75
+"z_drive_rod_offset"= 12
 "platter_rod_spacing"= 50
 "rod_nut_thickness"= 6.5
 "rod_nut_inscribed_diameter"= 13
@@ -19,6 +20,7 @@
 "sheet_thickness"=5
 "sheet_tab_hole_thickness"= "sheet_thickness"
 "sheet_tab_width"= "sheet_thickness"*2
+"sheet_double_tab_width"= 35
 "sheet_bolt_diameter"= 3
 "sheet_bolt_length"= 16
 "sheet_nut_diameter"= 5.5
