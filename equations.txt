@@ -17,7 +17,7 @@
 "gear_pitch"=2
 "r_gear_teeth"= 450
 "theta_gear_teeth"= 385
-"sheet_thickness"=5
+"sheet_thickness"=5.333
 "sheet_tab_hole_thickness"= "sheet_thickness"
 "sheet_tab_width"= "sheet_thickness"*2
 "sheet_double_tab_width"= 35
