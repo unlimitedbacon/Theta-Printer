@@ -13,7 +13,7 @@
 "platter_rod_spacing"= 50
 "rod_nut_thickness"= 6.5
 "rod_nut_inscribed_diameter"= 13
-"z_height"= 350
+"z_height"= 400
 "gear_pitch"=2
 "r_gear_teeth"= 450
 "theta_gear_teeth"= 385
@@ -33,3 +33,4 @@
 "setscrew_nut_thickness"= 3
 "setscrew_bolt_diameter"= 3
 "motor_shaft_diameter"= 5.7
+"printed_hole_tolerance"= 1
