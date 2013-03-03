@@ -33,4 +33,4 @@
 "setscrew_nut_thickness"= 3
 "setscrew_bolt_diameter"= 3
 "motor_shaft_diameter"= 5.7
-"printed_hole_tolerance"= 0.5
+"printed_hole_tolerance"= 0.3
