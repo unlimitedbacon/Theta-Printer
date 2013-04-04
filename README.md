@@ -1,5 +1,5 @@
-Quadricator
-===========
+Theta Printer
+=============
 
 A polar coordinate based 3D printer with 4 extruders
 
@@ -8,13 +8,13 @@ A polar coordinate based 3D printer with 4 extruders
 
 Whats a polar printer?
 ----------------------
-A polar printer works kind of like an old fashioned record player. Your objects are printed onto a platter which spins. Each extruder is on the end of an arm which swings in and out. The spinning platter is called the ϴ ("theta") axis and the swinging arm is called the R axis. Together these replace the normal X and Y coordinates you're used to.
+A polar printer works kind of like an old fashioned record player. Your objects are printed onto a platter which spins. The advantage is that you can have many print heads. Each extruder is on the end of an arm which swings in and out. The spinning platter is called the ϴ ("theta") axis and the swinging arm is called the R axis. Together these replace the normal X and Y coordinates you're used to.
 
 Features
 --------
 + 4 extruders for multiple colors and materials
 + 320 mm build platter
-+ 80425 mm^2 print area (meets or exceeds the area of current repraps)
++ 80425 mm^2 print area (bigger than most repraps)
 + 0.084 degrees/step angular resolution (ϴ Axis)
 + 0.20 mm/step linear resolution (R Axis)
 + Now comes in two versions! The lasercut edition and the reprap edition (printed parts & threaded rods)
