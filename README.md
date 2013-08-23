@@ -1,9 +1,10 @@
 Theta Printer
 =============
 
-A polar coordinate based 3D printer with 4 extruders
+A polar coordinate based 3D printer with 4 extruders.
+Follow development progress [here.](http://forums.reprap.org/read.php?185,178379)
 
-![A magnificent rendering of the Quadricator](http://i.imgur.com/bO3yb8Y.png)
+![A magnificent rendering of the Theta Printer](http://i.imgur.com/bO3yb8Y.png)
 [Full Size](http://i.imgur.com/XjrklZc.jpg)
 
 Whats a polar printer?
