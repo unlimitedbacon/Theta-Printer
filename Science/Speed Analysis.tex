@@ -1,0 +1,149 @@
+\documentclass[12pt,letterpaper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\author{Tyler Anderson}
+\title{Theta Printer Speed Analysis}
+\begin{document}
+
+\maketitle
+
+\section*{Speed Analysis}
+The greatest limiting factor on the speeds of a 3D printer is the acceleration.
+
+Older firmwares did not implement acceleration, so any changes in velocity would have to happen within the span of a single step. This limited the maximum speed of most printers to about 50 mm/s. While the motors and drive might be capable of much greater sustained speeds, the motor would not have enough torque to overcome the inertia of the moving parts, causing it to skip steps. Today's firmwares implement acceleration over multiple steps. By gradually ramping up the velocity, much higher maximum speeds can be achieved.
+
+Today, the fastest reliable printer is probably the Ultimaker.
+
+\subsection*{Motor Torque}
+The RepRap forums recommend using stepper motors with a holding torque between 0.137 and 0.4 Newton-Meters \cite{rtorque}. Typical values for a NEMA 17 seem to be between 0.4 and 0.5 Nm \cite{htorque}. Our chosen motors are the NEMA 17s sold by Lulzbot with an advertised holding torque of 0.55 Nm.
+
+Unfortunately, the torque exerted by a motor varies with speed. Also, torque while in motion is always significantly less than the holding torque. The datasheet for our chosen motors \cite{lulzmotor} provides a graph of the torque curve. At high speed the torque ranges from 0.25 to 0.20 Nm. We will accept 0.225 Nm as the average value.
+\begin{equation}
+	\tau = 0.225~\mathrm{Nm}
+\end{equation}
+
+% Probably uneccesary since torque at the platter can be found directly from the gear ratio
+\subsection*{Motor Force}
+In order to find the force exerted by the motor, we must first determine the radius of the motor gear. We use 18~tooth gears with a 2~mm pitch.
+\begin{equation}
+	r = \dfrac{18~\mathrm{teeth}*2.00~\dfrac{\mathrm{mm}}{\mathrm{tooth}}}{2\pi} = 5.73~\mathrm{mm} = 0.00573~\mathrm{m}
+\end{equation}
+\begin{equation}
+	F = \dfrac{\tau}{r} = \dfrac{0.225~\mathrm{Nm}}{0.00573~\mathrm{m}} = 39.3~\mathrm{N}
+\end{equation}
+
+\subsection*{Mass Moment of Inertia}
+Solidworks provides these figures based on the CAD model. $I_p$ will be the mass moment of inertia of the platter and associated moving parts.
+% Needs to be redone since we changed to the aluminium platter
+\begin{equation}
+	I_p = ~\mathrm{kg*mm^2}
+\end{equation}
+
+It is slightly more difficult to get the figure for an extruder arm because the CAD model does not include the extruder itself. We must estimate the MMI of an extruder around the appropriate axis and add it to the figure given by Solidworks.
+
+Approximating the extruder as a point mass:
+\begin{equation}
+	I_e = mr^2 = 
+\end{equation}
+
+Adding to the figure given for the arm by Solidworks, we get the total mass moment of inertia for the extruder arm.
+\begin{equation}
+	I_a = 0.00370601782~\mathrm{kg*m^2} +
+\end{equation}
+
+\subsection*{Final Torque}
+The torque exerted on the platter and arms can be directly calculated from the motor torque and gear ratios.
+
+For the platter:
+\begin{equation}
+	\tau_p = \tau \dfrac{N_2}{N_1} = 0.225~\mathrm{Nm} * \dfrac{385~\mathrm{teeth}}{18~\mathrm{teeth}} = 4.81~\mathrm{Nm}
+\end{equation}
+
+For the arm:
+\begin{equation}
+	\tau_a = \tau \dfrac{N_2}{N_1} = 0.225~\mathrm{Nm} * \dfrac{450~\mathrm{teeth}}{18~\mathrm{teeth}} = 5.63~\mathrm{Nm}
+\end{equation}
+
+\subsection*{Acceleration}
+The angular acceleration can be found by the angular adaption of Newton's second law.
+\begin{equation}
+	\tau = I\alpha
+\end{equation}
+
+For the platter:
+\begin{equation}
+	\alpha_p = \dfrac{\tau_p}{I_p} = \dfrac{4.81~\mathrm{Nm}}{•} = ~\mathrm{\dfrac{rad}{s^2}}
+\end{equation}
+
+For the arm:
+\begin{equation}
+	\alpha_a = \dfrac{\tau_a}{I_a} = \dfrac{5.63~\mathrm{Nm}}{•} = ~\mathrm{\dfrac{rad}{s^2}}
+\end{equation}
+
+Since the extruder is fixed on the end of the arm, and the radius is constant, we can calculate the linear acceleration of the $\theta_2$ axis.
+\begin{equation}
+	a = \alpha r
+\end{equation}
+\begin{equation}
+	a_a = ~\mathrm{\dfrac{rad}{s^2}} * 160~\mathrm{mm} = ~\mathrm{\dfrac{mm}{s^2}}
+\end{equation}
+
+For comparison, we can also calculate the linear acceleration of the $theta_1$ axis at a certain radius. The printer is designed to match the resolution of a RepRap at $r=122.55~\mathrm{mm}$.
+\begin{equation}
+	a_p = ~\mathrm{\dfrac{rad}{s^2}} * 122.55~\mathrm{mm} = ~\mathrm{\dfrac{mm}{s^2}}
+\end{equation}
+Closer to the center the acceleration will be less, but farther from the center it will be greater.
+
+\subsection*{Equivalent Mass}
+For comparison with other printers, we can also calculate the equivalent mass of each axis. These are the masses that a Cartesian printer would have to have to achieve the same acceleration.
+
+\begin{equation}
+	m = \dfrac{F}{a}
+\end{equation}
+X axis:
+\begin{equation}
+	m_x = \dfrac{39.3~\mathrm{N}}{~\mathrm{\dfrac{mm}{s^2}}} = ~\mathrm{g}
+\end{equation}
+Y axis:
+\begin{equation}
+	m_y = \dfrac{39.3~\mathrm{N}}{~\mathrm{\dfrac{mm}{s^2}}} = ~\mathrm{g}
+\end{equation}
+
+\section*{Comparison with Current RepRaps}
+\subsection*{Mass of Moving Components}
+\begin{tabular}{c|c|c}
+& X Axis (g) & Y Axis (g) \\ 
+\hline 
+Modified Sells Mendel & 700 & 1300 \\ 
+\hline 
+Printxel & 400 & 800 \\ 
+\end{tabular}
+
+\subsection*{Acceleration}
+\begin{tabular}{c|c}
+Firmware & Acceleration ($mm/s^2$) \\
+\hline
+Marlin Defaults \cite{marlin} & 3000 \\
+\hline
+Safe Values for RepRap & 1500 \\
+\hline
+Ultimaker & 4600 \\
+\hline
+Accelerated Ultimaker \cite{ultimax} & 8000 \\
+\hline
+Cupcake w/o Acceleration & 38400 \\
+\end{tabular}
+
+\begin{thebibliography}{99}
+\bibitem{rtorque} \url{http://reprap.org/wiki/Stepper_motor#Holding_Torque}
+\bibitem{htorque} \url{http://reprap.org/wiki/Stepper_motor#NEMA_17_suppliers}
+\bibitem{lulzmotor} \url{http://download.lulzbot.com/AO-100/hardware/electronics/spec_sheets/SY42STH47-1504A_stepperMotors.pdf}
+\bibitem{marlin} \url{https://github.com/ErikZalm/Marlin/blob/Marlin_v1/Marlin/Configuration.h}
+\bibitem{ultimax} \url{http://www.youtube.com/watch?v=i3DGRFMsU00}
+\end{thebibliography}
+
+\end{document}
