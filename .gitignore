@@ -1,0 +1,6 @@
+*.gcode
+Blog/*
+Materials/Receipts/*
+.SyncID
+.SyncIgnore
+.SyncArchive/*
