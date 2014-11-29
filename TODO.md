@@ -33,6 +33,6 @@
 * Opto sensor for homeing platter. This is not critical but could be useful for restarting paused prints.
 * Connect platter gear to motor with belt.
 * Need some way to clean nozzles when switching extruders
-* Ditch the whole bipolar thing and rebase everything on the R-360
+* *Ditch the whole bipolar thing and rebase everything on the R-360*
 	* option for independent Z axis or locked Z axis
 * Motor dampers
